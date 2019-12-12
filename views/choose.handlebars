@@ -1,24 +1,19 @@
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col">
-                <div class="row m-2">
-                    <div class="col-sm-2 m-2">
-                        <button class="btn-lg btn-block">Edit</button>
-                    </div>
-                    <div class="col-sm-9 m-2">
-                        <button class="btn-lg btn-block">Workout Number One</button>
-                    </div>
-                </div>
+<div class="container">
 
-                <div class="row m-2">
-                    <div class="col-sm-2 m-2">
-                        <button class="btn-lg btn-block">Edit</button>
-                    </div>
-                    <div class="col-sm-9 m-2">
-                        <button class="btn-lg btn-block">Workout Number Two</button>
-                    </div>
+    <div class="row align-items-center">
+        <div class="col">
+            {{#each routines}}
+            <div class="row m-2">
+                <div class="col-sm-2 m-2">
+                    <a href="/edit/{{id}}" class="btn btn-info btn-lg btn-block">Edit</a>
                 </div>
-
+                <div class="col-sm-9 m-2">
+                    <a href="track/{{id}}" class="btn btn-info btn-lg btn-block">{{name}}</a>
+                </div>
             </div>
+            {{/each}}
         </div>
     </div>
+
+</div>
+<script src="/assets/js/choose.js"></script>

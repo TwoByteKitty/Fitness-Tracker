@@ -1,11 +1,13 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const morgan = require("morgan");
-//const db = require("./models/index");
+const mongoose = require("mongoose");
 const staticRouter = require("./routes/view-routes");
-
+const routineRouter = require("./routes/workoutRoutineRoutes");
 
 const PORT = process.env.PORT || 8080;
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dbFitnessTracker", { useNewUrlParser: true });
 
 const app = express();
 
@@ -21,7 +23,7 @@ app.use(express.static("public"));
 
 //routes
 app.use(staticRouter);
-
+app.use("/api/routines", routineRouter);
 
 //start server
     app.listen(PORT, () => {

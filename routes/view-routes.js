@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+var workoutRoutineModel = require('../models/workoutRoutineModel.js');
+
 
 router.get(["/", "/create"], (req, res) => {
 
@@ -11,15 +13,20 @@ router.get(["/", "/create"], (req, res) => {
 
 
 router.get("/choose", (req, res) => {
-
-
-
-
-    res.render("choose");
+    workoutRoutineModel.find(function (err, workoutRoutines) {
+        console.log(workoutRoutines);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error when getting workoutRoutine.',
+                error: err
+            });
+        }
+        res.render('choose', { routines: workoutRoutines });
+    });
 });
 
 
-router.get("/track", (req, res) => {
+router.get("/track/:id", (req, res) => {
 
 
 
@@ -27,5 +34,13 @@ router.get("/track", (req, res) => {
     res.render("track");
 });
 
+
+router.get("/edit/:id", (req, res) => {
+
+
+
+
+    res.render("edit");
+});
 
 module.exports = router;
