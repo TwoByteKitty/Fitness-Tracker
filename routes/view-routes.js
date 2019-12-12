@@ -27,20 +27,46 @@ router.get("/choose", (req, res) => {
 
 
 router.get("/track/:id", (req, res) => {
+    var id = req.params.id;
+    workoutRoutineModel.findOne({ _id: id }, function (err, workoutRoutine) {
+        console.log(workoutRoutine);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error when getting workoutRoutine.',
+                error: err
+            });
+        }
+        if (!workoutRoutine) {
+            return res.status(404).json({
+                message: 'No such workoutRoutine'
+            });
+        }
+        res.render("track", { routine: workoutRoutine });
+    });
 
 
 
 
-    res.render("track");
 });
 
 
 router.get("/edit/:id", (req, res) => {
-
-
-
-
-    res.render("edit");
+    var id = req.params.id;
+    workoutRoutineModel.findOne({ _id: id }, function (err, workoutRoutine) {
+        console.log(workoutRoutine);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error when getting workoutRoutine.',
+                error: err
+            });
+        }
+        if (!workoutRoutine) {
+            return res.status(404).json({
+                message: 'No such workoutRoutine'
+            });
+        }
+        res.render("edit", { routine: workoutRoutine });
+    });
 });
 
 module.exports = router;
