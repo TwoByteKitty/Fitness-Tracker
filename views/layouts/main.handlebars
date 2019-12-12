@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-        <!-- Optional JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -26,21 +26,20 @@
 
 <body>
     <div class="container-fluid p-0 mb-5">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light shadow-lg">
             <div class="col-sm-8 text-center">
-                <h1 class="">Wednesday, 10:03:07 AM</h1>
+                <h1 class="dayNTime">Wednesday, 10:03:07 AM</h1>
             </div>
             <div class="col-sm-4">
                 <form class="form-inline">
                     <div class="dropdown container-fluid">
-                        <button class="btn btn-secondary btn-lg dropdown-toggle w-100" type="button"
+                        <button class="btn btn-warning btn-lg dropdown-toggle w-100" type="button"
                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             What would you like to do?
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Create a Routine</a>
-                            <a class="dropdown-item" href="#">Choose My Routine</a>
-                            <a class="dropdown-item" href="#">Track My Progress</a>
+                            <a class="dropdown-item" href="/create">Create a Routine</a>
+                            <a class="dropdown-item" href="/choose">Choose My Routine</a>
                         </div>
                     </div>
                 </form>
@@ -51,7 +50,7 @@
 
     {{{body}}}
 
-
+<script src="/assets/js/header.js"></script>
 </body>
 
 </html>
